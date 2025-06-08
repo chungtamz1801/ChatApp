@@ -1,0 +1,11 @@
+D:\Project\ChatApp\bin\Debug\ChatApp.exe.config
+D:\Project\ChatApp\bin\Debug\ChatApp.exe
+D:\Project\ChatApp\bin\Debug\ChatApp.pdb
+D:\Project\ChatApp\obj\Debug\ChatApp.csproj.AssemblyReference.cache
+D:\Project\ChatApp\obj\Debug\ChatApp.MessageScreen.resources
+D:\Project\ChatApp\obj\Debug\ChatApp.Properties.Resources.resources
+D:\Project\ChatApp\obj\Debug\ChatApp.csproj.GenerateResource.cache
+D:\Project\ChatApp\obj\Debug\ChatApp.csproj.CoreCompileInputs.cache
+D:\Project\ChatApp\obj\Debug\ChatApp.exe
+D:\Project\ChatApp\obj\Debug\ChatApp.pdb
+D:\Project\ChatApp\obj\Debug\ChatApp.Login.resources
