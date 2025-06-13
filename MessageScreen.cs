@@ -38,14 +38,14 @@ namespace ChatApp
             socket = new Socket(AddressFamily.InterNetwork,SocketType.Dgram, ProtocolType.Udp);
             socket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
             //gen key for RSA
-            long p = 61;
-            long q = 53;
-            long n, en, de;
-            RSAT.GenerateKeys(p, q,out n,out en,out de);
+            /*long n, en, de;
+            RSAT.GenerateKeys(out n,out en,out de);
             message_lst.Items.Add("System:" + en);
-            message_lst.Items.Add("System:" + de);
+            message_lst.Items.Add("System:" + de);*/
             //get user IP
-            Friend_IP.Text = Default.GetLocalIP();
+            Information_IP.Text = ip;
+            Information_Port.Text = port.ToString();
+            Friend_IP.Text = Default.GetLocalIP();           
         }
 
         private void connect_btn_Click(object sender, EventArgs e)
@@ -84,12 +84,12 @@ namespace ChatApp
 
         private void key_btn_Click(object sender, EventArgs e)
         {
-            long  p = 61;
-            long  q = 53;
             long  n, en, de;
-            RSAT.GenerateKeys(p, q, out n, out en, out de);
+            RSAT.GenerateKeys(out n, out en, out de);
             publicKeyRSA = new long[]{ en, n };
             privateKeyRSA = new long[] { de, n };
+            message_lst.Items.Add($"System: Private Key là ({de},{n})");
+            message_lst.Items.Add($"System: Public Key là ({en},{n})");
             string data = Default.TrasferLongArrayToString(publicKeyRSA);
             ASCIIEncoding aEncoding = new ASCIIEncoding();
             byte[] temp = aEncoding.GetBytes(data);
@@ -119,16 +119,17 @@ namespace ChatApp
                     ASCIIEncoding aEncoding = new ASCIIEncoding();
                     string temp = aEncoding.GetString(bytes);
                     long[] pubKey = Default.TrasferStringToLongArray(temp);
+                    message_lst.Items.Add($"System: Public Key nhận được là ({pubKey[0]},{pubKey[1]})");
                     //Gen key AES
                     keyAES = new byte[16];
                     using (RandomNumberGenerator rng = RandomNumberGenerator.Create())
                     {
                         rng.GetBytes(keyAES);
                     }
-                    message_lst.Items.Add("System1: " + BitConverter.ToString(keyAES));
+                    message_lst.Items.Add($"System: Key AES là {BitConverter.ToString(keyAES)}");
                     //Ma hoa key AES bang public key RSA
                     string sendingMessage = RSAT.Encrypt(keyAES, pubKey[0], pubKey[1]);
-                    message_lst.Items.Add("System2: " + sendingMessage);
+                    message_lst.Items.Add($"System: Key AES sau khi mã hóa bằng RSA là {sendingMessage}");
                     byte[] data = aEncoding.GetBytes(sendingMessage);
                     byte[] sendingData = new byte[data.Length+1];
                     Array.Copy(data, 0, sendingData, 1, data.Length);
@@ -142,9 +143,9 @@ namespace ChatApp
                     Array.Copy(receivedData, 1, bytes, 0, 16*storage);
                     ASCIIEncoding aEncoding = new ASCIIEncoding();
                     string temp = aEncoding.GetString(bytes);
-                    message_lst.Items.Add("System3: " + temp);
+                    message_lst.Items.Add($"System: Key AES mã hóa nhận được là {temp}");
                     keyAES = RSAT.Decrypt(temp, privateKeyRSA[0], privateKeyRSA[1]);
-                    message_lst.Items.Add("System4: " + BitConverter.ToString(keyAES));
+                    message_lst.Items.Add($"System: Key AES sau khi giải mã là {BitConverter.ToString(keyAES)}");
                     //
                 }
 

@@ -10,20 +10,30 @@ namespace ChatApp.Secutiry
 {
     internal static class RSAT
     {
-        public static void GenerateKeys(long p, long q, out long n,out long e,out long d)
+        public static void GenerateKeys(out long n,out long e,out long d)
         {
-            if (!Default.IsPrime(p) || !Default.IsPrime(q))
+            int p=0;
+            int q=0;
+            for(int i = 1000; i < 10000; i++)
             {
-                throw new Exception();
+                if(Default.IsPrime(i))
+                {
+                    if(p==0) p = i;
+                    else
+                    {
+                        q= i;
+                        break;
+                    }
+                }
             }
-
             n = p * q;
             long phi = (p - 1) * (q - 1);
-
-            e = 3;
-            while (Default.GCD(e, phi) != 1)
-                e += 2;
-
+            do
+            {
+                Random random = new Random();
+                e = random.Next(2, Convert.ToInt32(phi - 2));
+            }
+            while (Default.GCD(e, phi) != 1);
             d = Default.ModInverse(e, phi);
         }
         //Co the gop lai thanh 1 ham

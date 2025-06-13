@@ -38,7 +38,13 @@
             this.message_tbx = new System.Windows.Forms.TextBox();
             this.send_btn = new System.Windows.Forms.Button();
             this.key_btn = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Information_Port = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Information_IP = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -47,7 +53,7 @@
             this.groupBox2.Controls.Add(this.Friend_Port);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.Friend_IP);
-            this.groupBox2.Location = new System.Drawing.Point(85, 64);
+            this.groupBox2.Location = new System.Drawing.Point(364, 66);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(266, 100);
             this.groupBox2.TabIndex = 4;
@@ -88,7 +94,7 @@
             // 
             // connect_btn
             // 
-            this.connect_btn.Location = new System.Drawing.Point(421, 99);
+            this.connect_btn.Location = new System.Drawing.Point(645, 109);
             this.connect_btn.Name = "connect_btn";
             this.connect_btn.Size = new System.Drawing.Size(97, 34);
             this.connect_btn.TabIndex = 5;
@@ -102,7 +108,8 @@
             this.message_lst.ItemHeight = 16;
             this.message_lst.Location = new System.Drawing.Point(85, 211);
             this.message_lst.Name = "message_lst";
-            this.message_lst.Size = new System.Drawing.Size(744, 196);
+            this.message_lst.ScrollAlwaysVisible = true;
+            this.message_lst.Size = new System.Drawing.Size(785, 196);
             this.message_lst.TabIndex = 6;
             // 
             // message_tbx
@@ -124,7 +131,7 @@
             // 
             // key_btn
             // 
-            this.key_btn.Location = new System.Drawing.Point(552, 99);
+            this.key_btn.Location = new System.Drawing.Point(773, 109);
             this.key_btn.Name = "key_btn";
             this.key_btn.Size = new System.Drawing.Size(97, 34);
             this.key_btn.TabIndex = 8;
@@ -132,11 +139,59 @@
             this.key_btn.UseVisualStyleBackColor = true;
             this.key_btn.Click += new System.EventHandler(this.key_btn_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.Information_Port);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.Information_IP);
+            this.groupBox1.Location = new System.Drawing.Point(85, 66);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(266, 100);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Information";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 63);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 16);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Port";
+            // 
+            // Information_Port
+            // 
+            this.Information_Port.Enabled = false;
+            this.Information_Port.Location = new System.Drawing.Point(72, 58);
+            this.Information_Port.Name = "Information_Port";
+            this.Information_Port.Size = new System.Drawing.Size(162, 22);
+            this.Information_Port.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(19, 16);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "IP";
+            // 
+            // Information_IP
+            // 
+            this.Information_IP.Enabled = false;
+            this.Information_IP.Location = new System.Drawing.Point(72, 30);
+            this.Information_IP.Name = "Information_IP";
+            this.Information_IP.Size = new System.Drawing.Size(162, 22);
+            this.Information_IP.TabIndex = 0;
+            // 
             // MessageScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(857, 504);
+            this.ClientSize = new System.Drawing.Size(924, 504);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.key_btn);
             this.Controls.Add(this.send_btn);
             this.Controls.Add(this.message_tbx);
@@ -148,6 +203,8 @@
             this.Load += new System.EventHandler(this.MessageScreen_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,5 +221,10 @@
         private System.Windows.Forms.TextBox message_tbx;
         private System.Windows.Forms.Button send_btn;
         private System.Windows.Forms.Button key_btn;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox Information_Port;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox Information_IP;
     }
 }
