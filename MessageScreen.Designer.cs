@@ -33,7 +33,6 @@
             this.Friend_Port = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.Friend_IP = new System.Windows.Forms.TextBox();
-            this.connect_btn = new System.Windows.Forms.Button();
             this.message_lst = new System.Windows.Forms.ListBox();
             this.message_tbx = new System.Windows.Forms.TextBox();
             this.send_btn = new System.Windows.Forms.Button();
@@ -92,16 +91,6 @@
             this.Friend_IP.Size = new System.Drawing.Size(162, 22);
             this.Friend_IP.TabIndex = 0;
             // 
-            // connect_btn
-            // 
-            this.connect_btn.Location = new System.Drawing.Point(645, 109);
-            this.connect_btn.Name = "connect_btn";
-            this.connect_btn.Size = new System.Drawing.Size(97, 34);
-            this.connect_btn.TabIndex = 5;
-            this.connect_btn.Text = "Connect";
-            this.connect_btn.UseVisualStyleBackColor = true;
-            this.connect_btn.Click += new System.EventHandler(this.connect_btn_Click);
-            // 
             // message_lst
             // 
             this.message_lst.FormattingEnabled = true;
@@ -131,7 +120,7 @@
             // 
             // key_btn
             // 
-            this.key_btn.Location = new System.Drawing.Point(773, 109);
+            this.key_btn.Location = new System.Drawing.Point(675, 111);
             this.key_btn.Name = "key_btn";
             this.key_btn.Size = new System.Drawing.Size(97, 34);
             this.key_btn.TabIndex = 8;
@@ -196,7 +185,6 @@
             this.Controls.Add(this.send_btn);
             this.Controls.Add(this.message_tbx);
             this.Controls.Add(this.message_lst);
-            this.Controls.Add(this.connect_btn);
             this.Controls.Add(this.groupBox2);
             this.Name = "MessageScreen";
             this.Text = "MessageScreen";
@@ -216,7 +204,6 @@
         private System.Windows.Forms.TextBox Friend_Port;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox Friend_IP;
-        private System.Windows.Forms.Button connect_btn;
         private System.Windows.Forms.ListBox message_lst;
         private System.Windows.Forms.TextBox message_tbx;
         private System.Windows.Forms.Button send_btn;

@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 
 namespace ChatApp.Secutiry
@@ -94,6 +95,19 @@ namespace ChatApp.Secutiry
             {
                 result += ","+ array[i].ToString();
             }
+            return result;
+        }
+        public static byte[] InsertArrayInFirst(int firstValue, byte[] array)
+        {
+            byte[] result = new byte[array.Length+1];
+            Array.Copy(array, 0, result, 1, array.Length);
+            result[0] = (byte)firstValue;
+            return result;
+        }
+        public static byte[] DeleteArrayInFirst(byte[] array)
+        {
+            byte[] result = new byte[array.Length-1];
+            Array.Copy(array, 1, result, 0, result.Length);
             return result;
         }
     }
