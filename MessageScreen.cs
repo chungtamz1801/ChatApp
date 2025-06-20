@@ -130,8 +130,9 @@ namespace ChatApp
                 if (receivedData[0] % 10 == 0)
                 {
                     byte[] key = keyAES[receivedData[0]/10];
-                    byte[] bytes = Default.DeleteArrayInFirst(receivedData.Take(17).ToArray());
-                    string receivedMessage = AES.Decrypt(bytes, key, new byte[16]);
+                    byte[] bytes = Default.DeleteArrayInFirst(receivedData);
+                    int id = bytes.ToList().IndexOf(0);
+                    string receivedMessage = AES.Decrypt(bytes.Take(id).ToArray(), key, new byte[16]);
                     message_lst.Items.Add($"{clients[receivedData[0] / 10]}: {receivedMessage}");
                 }
                 else if(receivedData[0] % 10 == 1)
@@ -200,6 +201,7 @@ namespace ChatApp
             catch(Exception ex) 
             {
                 MessageBox.Show(ex.ToString());
+                socket.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epTemp, new AsyncCallback(MessageCallBack), buffer);
             }
         }
     }
